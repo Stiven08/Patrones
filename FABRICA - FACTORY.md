@@ -1,4 +1,4 @@
-#FABRICA - (FACTORY)
+# FABRICA - (FACTORY)
 Este patron se utiliza para la creacion de objetos sin la necesidad de 
 especificar la clase exacta, por lo que el objeto que se esta creando 
 puede ser intercambiado facilmente. Lo que factory quiere hacer es 
