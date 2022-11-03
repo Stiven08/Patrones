@@ -6,61 +6,43 @@ resolver los problemas de la creacion de un objeto concreto de una clase
 en la programacion orientado a objetos.
 
 import abc
-class AbstractFactory(metaclass=abc.ABCMeta):
-    @abc.abstractmethod
-    def create_product_a(self):
-        pass
+
+class Creator(metaclass=abc.ABCMeta):
+    def __init__(self):
+        self.product = self._factory_method()
 
     @abc.abstractmethod
-    def create_product_b(self):
+    def _factory_method(self):
         pass
 
-class ConcreteFactory1(AbstractFactory):
-    def create_product_a(self):
-        return ConcreteProductA1()
+    def some_operation(self):
+        self.product.interface()
 
-    def create_product_b(self):
-        return ConcreteProductB1()
+class ConcreteCreator1(Creator):
+    def _factory_method(self):
+        return ConcreteProduct1()
 
-class ConcreteFactory2(AbstractFactory):
-    def create_product_a(self):
-        return ConcreteProductA2()
+class ConcreteCreator2(Creator):
+    def _factory_method(self):
+        return ConcreteProduct2()
 
-    def create_product_b(self):
-        return ConcreteProductB2()
-    
-class AbstractProductA(metaclass=abc.ABCMeta):
+class Product(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def interface_a(self):
+    def interface(self):
         pass
 
-class ConcreteProductA1(AbstractProductA):
-    def interface_a(self):
+class ConcreteProduct1(Product):
+    def interface(self):
         pass
 
-class ConcreteProductA2(AbstractProductA):
-    def interface_a(self):
-        pass
-
-class AbstractProductB(metaclass=abc.ABCMeta):
-    @abc.abstractmethod
-    def interface_b(self):
-        pass
-
-class ConcreteProductB1(AbstractProductB):
-    def interface_b(self):
-        pass
-
-class ConcreteProductB2(AbstractProductB):
-    def interface_b(self):
+class ConcreteProduct2(Product):
+    def interface(self):
         pass
 
 def main():
-    for factory in (ConcreteFactory1(), ConcreteFactory2()):
-        product_a = factory.create_product_a()
-        product_b = factory.create_product_b()
-        product_a.interface_a()
-        product_b.interface_b()
+    concrete_creator = ConcreteCreator1()
+    concrete_creator.product.interface()
+    concrete_creator.some_operation()
 
 if __name__ == "__main__":
     main()
