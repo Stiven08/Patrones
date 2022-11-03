@@ -32,7 +32,7 @@ Este patron es de un diseño estructural ya que este permite una interfaz
 esquematizado a un framework, biblioteca o tambien a otros tipos de clases.
 
 
-## Decorador - (Decorator)#
+## Decorador - (Decorator)
 Este patron tambine es de diseño estructural, ya que ingresar funciones 
 a los objetos, posicionando estos objetos dentro de otros objetos
 especiales que contienen las funcionalidades.
